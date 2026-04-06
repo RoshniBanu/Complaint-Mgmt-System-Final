@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complaint Management System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background-shape shape-a"></div>
+  <div class="background-shape shape-b"></div>
+  <main class="app">
+    <header class="app-header">
+      <h1>Online Complaint Management</h1>
+      <p>Role-based portal for users, admin, and engineers.</p>
+    </header>
+
+    <section id="authSection" class="card auth-card">
+      <h2>Login</h2>
+      <form id="loginForm" class="form-grid">
+        <label>
+          Role
+          <select id="role" required>
+            <option value="">Select role</option>
+            <option value="admin">Admin</option>
+            <option value="user">User</option>
+            <option value="engineer">Engineer</option>
+          </select>
+        </label>
+        <label>
+          Username
+          <input type="text" id="username" placeholder="Enter username" required>
+        </label>
+        <label>
+          Password
+          <input type="password" id="password" placeholder="Enter password" required>
+        </label>
+        <button type="submit">Login</button>
+      </form>
+      <div class="hint-box">
+        <p><strong>Demo Accounts</strong></p>
+        <p>Admin: <code>admin / admin123</code></p>
+        <p>User: <code>user1 / user123</code></p>
+        <p>Engineer: <code>eng1 / eng123</code> or <code>eng2 / eng123</code></p>
+      </div>
+      <hr>
+      <h3>New User Signup</h3>
+      <form id="signupForm" class="form-grid">
+        <label>
+          Username
+          <input type="text" id="signupUsername" placeholder="Create username" required>
+        </label>
+        <label>
+          Password
+          <input type="password" id="signupPassword" placeholder="Create password" required>
+        </label>
+        <button type="submit">Create User Account</button>
+      </form>
+      <p id="authMessage" class="message"></p>
+    </section>
+
+    <section id="dashboardSection" class="card hidden">
+      <div class="dashboard-top">
+        <div>
+          <h2 id="dashboardTitle"></h2>
+          <p id="dashboardSubtitle"></p>
+        </div>
+        <button id="logoutBtn" class="secondary">Logout</button>
+      </div>
+
+      <div id="userPanel" class="role-panel hidden">
+        <h3>Register New Complaint</h3>
+        <form id="complaintForm" class="form-grid">
+          <label>
+            Complaint Title
+            <input type="text" id="complaintTitle" required placeholder="Short title">
+          </label>
+          <label>
+            Complaint Details
+            <textarea id="complaintDescription" required placeholder="Explain your complaint"></textarea>
+          </label>
+          <button type="submit">Submit Complaint</button>
+        </form>
+        <h3>Your Complaints</h3>
+        <div id="userComplaints" class="list-wrap"></div>
+      </div>
+
+      <div id="adminPanel" class="role-panel hidden">
+        <h3>Complaints Received From Users</h3>
+        <div id="adminComplaints" class="list-wrap"></div>
+      </div>
+
+      <div id="engineerPanel" class="role-panel hidden">
+        <h3>Complaints Allocated By Admin</h3>
+        <div id="engineerComplaints" class="list-wrap"></div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
